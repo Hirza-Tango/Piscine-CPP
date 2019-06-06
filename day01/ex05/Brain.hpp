@@ -5,10 +5,7 @@
 
 class Brain{
 public:
-	Brain();
 	std::string identify() const;
-private:
-	const Brain *_address;
 };
 
 #endif

@@ -37,7 +37,10 @@ int main(int argc, char **argv){
 		exit_reason("Could not open files", 3);
 	}
 	while(std::getline(inputFile, line) && outputFile.good()){
-		outputFile << find_replace(line, find, replace) << std::endl;
+		outputFile << find_replace(line, find, replace);
+		if (!inputFile.eof()){
+			outputFile << std::endl;
+		}
 	}
 	if (inputFile.bad() || outputFile.bad()){
 		exit_reason("Read/write could not complete", 4);

@@ -32,14 +32,14 @@ void Fixed::setRawBits( int const raw ){
 	_fixed = raw;
 }
 
-Fixed::Fixed(int points){
+Fixed::Fixed(int num){
 	std::cout << "Int constructor called" << std::endl;
-	_fixed = points << _bits;
+	_fixed = num << _bits;
 }
 
-Fixed::Fixed(float points){
+Fixed::Fixed(float num){
 	std::cout << "Float constructor called" << std::endl;
-	_fixed = roundf(points * (1 << _bits));
+	_fixed = static_cast<int>(roundf(num * (1 << _bits)));
 }
 
 int Fixed::toInt( void ) const{
